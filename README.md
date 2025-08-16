@@ -17,19 +17,20 @@ A repository for the digital forensic analysis of network recordings, utilising 
 
 ## 1. Capture Network Traffic
    - Use Wireshark to capture network activity and export the relevant packets (e.g., HTTP file transfers).
-<img src="">
+
+<img src="https://github.com/Corporate101/Digital-Investigation/blob/main/WS%20Captured%20act..png">
+
    - Identify files, right click> follow> TCP stream,
-<img src="">
+
+<img src="https://github.com/Corporate101/Digital-Investigation/blob/main/TCP%20stream.png">
 
    - Save the TCP stream or HTTP object as a `.txt` file in the `captures/` folder.
 
 ### 2. **Hex Analysis with HxD**
    - Open the exported data in HxD.
-   - Identify file signatures (e.g., PNG: `89 50 4E 47`, JPG: `FF D8 FF`, PDF: `%PDF`, ZIP: `50 4B 03 04`).
-<img src="">
-<img src="">
-<img src="">
-<img src="">
+   -Identify file signatures (e.g., PNG: `89 50 4E 47`, JPG: `FF D8 FF`, PDF: `%PDF`, ZIP: `50 4B 03 04`).
+
+<img src="https://github.com/Corporate101/Digital-Investigation/blob/main/Raw%20DATA.png">
 
    - Select from the file signature to the end of the file (e.g., PNG ends with `49 45 4E 44 AE 42 60 82`).
    - Copy and save as a new binary file (e.g., `extracted_BNS02.png` in the `images/` folder).
@@ -38,4 +39,17 @@ A repository for the digital forensic analysis of network recordings, utilising 
    - If you find base64-encoded data in the capture, copy it to a `.txt` file.
      - **Online:**  
        - Go to [https://www.base64decode.org/](https://www.base64decode.org/)
-       - Paste the base64 string and download the decoded file.
+       - Paste the base64 string, press decode.
+       
+<img src="https://github.com/Corporate101/Digital-Investigation/blob/main/Base%2064.png">
+ 
+ ## Method
+
+- Used HxD to identify and extract file signatures from the TCP stream.
+- Used base64 decoding for any encoded data.
+- Verified file integrity by opening the files.
+
+## Observations
+
+- All files were successfully recovered and opened.
+- No evidence of file tampering or malware detected in the recovered files.
